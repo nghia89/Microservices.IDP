@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  # database section
+  identitydb:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: identitydb
+    environment:
+      SA_PASSWORD: "Passw0rd!"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - identity_sqlserver_data:/var/opt/mssql
+    restart: always
+    ports:
+      - "1436:1433"
+    
+volumes:
+  identity_sqlserver_data:
+    external: false
+      

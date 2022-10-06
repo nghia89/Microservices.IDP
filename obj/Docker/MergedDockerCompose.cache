@@ -1,0 +1,27 @@
+name: dockercompose13174473537807598808
+services:
+  identitydb:
+    container_name: identitydb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Passw0rd!
+    image: mcr.microsoft.com/azure-sql-edge
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: "1436"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: volume
+      source: identity_sqlserver_data
+      target: /var/opt/mssql
+      volume: {}
+networks:
+  default:
+    name: dockercompose13174473537807598808_default
+volumes:
+  identity_sqlserver_data:
+    name: dockercompose13174473537807598808_identity_sqlserver_data

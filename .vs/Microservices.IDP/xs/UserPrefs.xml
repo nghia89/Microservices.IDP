@@ -1,0 +1,5 @@
+﻿<Properties StartupConfiguration="{D028B85E-7EA6-4DB9-B2E1-7860AEBB56FE}|Default">
+  <MonoDevelop.Ide.ItemProperties.Microservices.IDP PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
