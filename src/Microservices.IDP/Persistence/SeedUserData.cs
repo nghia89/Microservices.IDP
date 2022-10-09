@@ -32,9 +32,9 @@ public class SeedUserData
             using (var scope = serviceProvider
                        .GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                CreateUser(scope, "Alice", "Smith", "Alice Smith's Wollongong",
-                    Guid.NewGuid().ToString(), "alice123",
-                    "Administrator", "alicesmith@example.com");
+                CreateUser(scope, "admin", "Smith", "Alice Smith's Wollongong",
+                    Guid.NewGuid().ToString(), "admin123",
+                    "Administrator", "admin");
             }
         }
     }

@@ -1,24 +1,26 @@
 ﻿using System;
 using Duende.IdentityServer.Test;
+using Microservices.IDP.Common;
 using Microservices.IDP.Infrastructure.Entities;
 using Microservices.IDP.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.OpenApi.Models;
 
 namespace Microservices.IDP.Extensions
 {
     public static class ServiceExtensions
     {
-        //internal static IServiceCollection AddConfigurationSettings(this IServiceCollection services,
-        //    IConfiguration configuration)
-        //{
-        //    var emailSettings = configuration.GetSection(nameof(SMTPEmailSetting))
-        //        .Get<SMTPEmailSetting>();
-        //    services.AddSingleton(emailSettings);
+        internal static IServiceCollection AddConfigurationSettings(this IServiceCollection services,
+           IConfiguration configuration)
+        {
+            var emailSettings = configuration.GetSection(nameof(SMTPEmailSetting))
+                .Get<SMTPEmailSetting>();
+            services.AddSingleton(emailSettings);
 
-        //    return services;
-        //}
+            return services;
+        }
         public static void ConfigureCors(this IServiceCollection services)
         {
             services.AddCors(options =>
@@ -91,56 +93,56 @@ namespace Microservices.IDP.Extensions
                 .AddDefaultTokenProviders();
         }
 
-        //public static void ConfigureSwagger(this IServiceCollection services, IConfiguration configuration)
-        //{
-        //    services.AddEndpointsApiExplorer();
-        //    services.AddSwaggerGen(c =>
-        //    {
-        //        c.EnableAnnotations();
-        //        c.SwaggerDoc("v1", new OpenApiInfo
-        //        {
-        //            Title = "Tedu Identity Server API",
-        //            Version = "v1",
-        //            Contact = new OpenApiContact
-        //            {
-        //                Name = "Tedu Identity Service",
-        //                Email = "kietpham.dev@gmail.com",
-        //                Url = new Uri("https://kietpham.dev")
-        //            }
-        //        });
-        //        var identityServerBaseUrl = configuration.GetSection("IdentityServer:BaseUrl").Value;
-        //        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-        //        {
-        //            Type = SecuritySchemeType.OAuth2,
-        //            Flows = new OpenApiOAuthFlows
-        //            {
-        //                Implicit = new OpenApiOAuthFlow
-        //                {
-        //                    AuthorizationUrl = new Uri($"{identityServerBaseUrl}/connect/authorize"),
-        //                    Scopes = new Dictionary<string, string>
-        //                {
-        //                    { "tedu_microservices_api.read", "Tedu Microservices API Read Scope" },
-        //                    { "tedu_microservices_api.write", "Tedu Microservices API Write Scope" }
-        //                }
-        //                }
-        //            }
-        //        });
-        //        c.AddSecurityRequirement(new OpenApiSecurityRequirement
-        //    {
-        //        {
-        //            new OpenApiSecurityScheme
-        //            {
-        //                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
-        //            },
-        //            new List<string>
-        //            {
-        //                "tedu_microservices_api.read",
-        //                "tedu_microservices_api.write"
-        //            }
-        //        }
-        //    });
-        //    });
-        //}
+        public static void ConfigureSwagger(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen(c =>
+            {
+                c.EnableAnnotations();
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Identity Server API",
+                    Version = "v1",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Identity Service",
+                        Email = "admin.dev@gmail.com",
+
+                    }
+                });
+                var identityServerBaseUrl = configuration.GetSection("IdentityServer:BaseUrl").Value;
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.OAuth2,
+                    Flows = new OpenApiOAuthFlows
+                    {
+                        Implicit = new OpenApiOAuthFlow
+                        {
+                            AuthorizationUrl = new Uri($"{identityServerBaseUrl}/connect/authorize"),
+                            Scopes = new Dictionary<string, string>
+                        {
+                           { "tedu_microservices_api.read", "Tedu Microservices API Read Scope" },
+                           { "tedu_microservices_api.write", "Tedu Microservices API Write Scope" }
+                        }
+                        }
+                    }
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+               {
+                   new OpenApiSecurityScheme
+                   {
+                       Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
+                   },
+                   new List<string>
+                   {
+                       "tedu_microservices_api.read",
+                       "tedu_microservices_api.write"
+                   }
+               }
+            });
+            });
+        }
 
         public static void ConfigureAuthentication(this IServiceCollection services)
         {

@@ -130,17 +130,48 @@ namespace Microservices.IDP.Migrations.IdentityServer.Identity
                     table.PrimaryKey("PK_UserTokens", x => x.UserId);
                 });
 
-            migrationBuilder.InsertData(
+            migrationBuilder.CreateTable(
+                name: "Permissions",
                 schema: "Identity",
-                table: "Roles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "65b7ffcb-3774-4a47-b62e-55311e5e06b6", "b62283b4-e992-48c0-895f-f9af0c75fe39", "Administrator", "ADMINISTRATOR" });
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Function = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
+                    RoleId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    Command = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Permissions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Permissions_Roles_RoleId",
+                        column: x => x.RoleId,
+                        principalSchema: "Identity",
+                        principalTable: "Roles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.InsertData(
                 schema: "Identity",
                 table: "Roles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "a3cac5f0-6254-45f1-9708-926bec5e5526", "4c03493b-aac7-4d72-80b6-a56cfe72896f", "Customer", "CUSTOMER" });
+                values: new object[] { "c390ddc3-05df-41b9-9e96-0ab908fcf36c", "1dd0cfab-a5ab-42b9-bbb3-b23b0b04705d", "Administrator", "ADMINISTRATOR" });
+
+            migrationBuilder.InsertData(
+                schema: "Identity",
+                table: "Roles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "e947c11e-3c48-4bda-b482-fb479d886f4f", "94d02b39-577a-47b4-a295-98179016f84d", "Customer", "CUSTOMER" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Permissions_RoleId_Function_Command",
+                schema: "Identity",
+                table: "Permissions",
+                columns: new[] { "RoleId", "Function", "Command" },
+                unique: true,
+                filter: "[Function] IS NOT NULL AND [Command] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_Email",
@@ -152,11 +183,11 @@ namespace Microservices.IDP.Migrations.IdentityServer.Identity
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "RoleClaims",
+                name: "Permissions",
                 schema: "Identity");
 
             migrationBuilder.DropTable(
-                name: "Roles",
+                name: "RoleClaims",
                 schema: "Identity");
 
             migrationBuilder.DropTable(
@@ -177,6 +208,10 @@ namespace Microservices.IDP.Migrations.IdentityServer.Identity
 
             migrationBuilder.DropTable(
                 name: "UserTokens",
+                schema: "Identity");
+
+            migrationBuilder.DropTable(
+                name: "Roles",
                 schema: "Identity");
         }
     }

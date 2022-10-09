@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata;
+﻿using Microservices.IDP.Infrastructure.Domains;
+using Microservices.IDP.Infrastructure.Repositories;
+using Microservices.IDP.Presentation;
+using Microservices.IDP.Services.EmailService;
+using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 
@@ -55,14 +58,23 @@ internal static class HostingExtensions
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddControllersWithViews();
+        builder.Services.AddConfigurationSettings(builder.Configuration);
+        builder.Services.AddAutoMapper(typeof(Program));
         // uncomment if you want to add a UI
         builder.Services.AddRazorPages();
 
         // Add services to the container
+        builder.Services.AddScoped<IEmailSender, SmtpMailService>();
         builder.Services.ConfigureCookiePolicy();
         builder.Services.ConfigureCors();
         builder.Services.ConfigureIdentity(builder.Configuration);
         builder.Services.ConfigureIdentityServer(builder.Configuration);
+        builder.Services.AddTransient(typeof(IUnitOfWork),
+           typeof(UnitOfWork));
+        builder.Services.AddTransient(typeof(IRepositoryBase<,>),
+            typeof(RepositoryBase<,>));
+        builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
+        builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
         builder.Services.AddControllers(config =>
         {
             config.RespectBrowserAcceptHeader = true;
@@ -70,6 +82,7 @@ internal static class HostingExtensions
             config.Filters.Add(new ProducesAttribute("application/json", "text/plain", "text/json"));
         }).AddApplicationPart(typeof(AssemblyReference).Assembly);
         builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
+        builder.Services.ConfigureSwagger(builder.Configuration);
         return builder.Build();
     }
 
@@ -85,6 +98,13 @@ internal static class HostingExtensions
         // uncomment if you want to add a UI
         app.UseStaticFiles();
         app.UseCors("CorsPolicy");
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
+        {
+            c.OAuthClientId("microservices_swagger");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Identity API");
+            c.DisplayRequestDuration();
+        });
         app.UseRouting();
 
         //set cookie policy before authentication/authorization setup

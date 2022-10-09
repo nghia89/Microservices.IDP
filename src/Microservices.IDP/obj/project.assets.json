@@ -74,6 +74,19 @@
           }
         }
       },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "11.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Azure.Core/1.6.0": {
         "type": "package",
         "dependencies": {
@@ -114,6 +127,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Identity.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Dapper/2.0.123": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {
             "related": ".xml"
           }
         }
@@ -1933,6 +1959,22 @@
             "rid": "win"
           }
         }
+      },
+      "Microservice.IDP.Presentation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Swashbuckle.AspNetCore": "6.2.3"
+        },
+        "compile": {
+          "bin/placeholder/Microservice.IDP.Presentation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Microservice.IDP.Presentation.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -1996,6 +2038,20 @@
         "lib/netstandard2.1/AutoMapper.xml"
       ]
     },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
+      "sha512": "0asw5WxdCFh2OTi9Gv+oKyH9SzxwYQSnO8TV5Dd0GggovILzJW4UimP26JAcxc3yB5NnC5urooZ1BBs8ElpiBw==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
     "Azure.Core/1.6.0": {
       "sha512": "kI4m2NsODPOrxo0OoKjk6B3ADbdovhDQIEmI4039upjjZKRaewVLx/Uz4DfRa/NtnIRZQPUALe1yvdHWAoRt4w==",
       "type": "package",
@@ -2028,6 +2084,24 @@
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml",
         "pkgicon.png"
+      ]
+    },
+    "Dapper/2.0.123": {
+      "sha512": "RDFF4rBLLmbpi6pwkY7q/M6UXHRJEOerplDGE5jwEkP/JGJnBauAClYavNKJPW1yOTWRPIyfj4is3EaJxQXILQ==",
+      "type": "package",
+      "path": "dapper/2.0.123",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Dapper.png",
+        "dapper.2.0.123.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net461/Dapper.dll",
+        "lib/net461/Dapper.xml",
+        "lib/net5.0/Dapper.dll",
+        "lib/net5.0/Dapper.xml",
+        "lib/netstandard2.0/Dapper.dll",
+        "lib/netstandard2.0/Dapper.xml"
       ]
     },
     "Duende.IdentityServer/6.1.5": {
@@ -5587,15 +5661,23 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Microservice.IDP.Presentation/1.0.0": {
+      "type": "project",
+      "path": "../Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj",
+      "msbuildProject": "../Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "AspNetCore.HealthChecks.SqlServer >= 6.0.2",
       "AspNetCore.HealthChecks.UI.Client >= 6.0.5",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
+      "Dapper >= 2.0.123",
       "Duende.IdentityServer >= 6.1.5",
       "Duende.IdentityServer.AspNetIdentity >= 6.1.5",
       "Duende.IdentityServer.EntityFramework >= 6.1.5",
+      "Microservice.IDP.Presentation >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.8",
@@ -5631,7 +5713,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj": {
+              "projectPath": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -5651,6 +5737,14 @@
           "AspNetCore.HealthChecks.UI.Client": {
             "target": "Package",
             "version": "[6.0.5, )"
+          },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[11.0.0, )"
+          },
+          "Dapper": {
+            "target": "Package",
+            "version": "[2.0.123, )"
           },
           "Duende.IdentityServer": {
             "target": "Package",

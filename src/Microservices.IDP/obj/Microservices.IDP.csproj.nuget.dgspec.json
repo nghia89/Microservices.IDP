@@ -4,14 +4,14 @@
     "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/Microservices.IDP.csproj": {}
   },
   "projects": {
-    "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/Microservices.IDP.csproj": {
+    "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/Microservices.IDP.csproj",
-        "projectName": "Microservices.IDP",
-        "projectPath": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/Microservices.IDP.csproj",
+        "projectUniqueName": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj",
+        "projectName": "Microservice.IDP.Presentation",
+        "projectPath": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj",
         "packagesPath": "/Users/nguyennghia/.nuget/packages/",
-        "outputPath": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/obj/",
+        "outputPath": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP.Presentation/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nguyennghia/.nuget/NuGet/NuGet.Config"
@@ -38,6 +38,72 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/Microservices.IDP.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/Microservices.IDP.csproj",
+        "projectName": "Microservices.IDP",
+        "projectPath": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/Microservices.IDP.csproj",
+        "packagesPath": "/Users/nguyennghia/.nuget/packages/",
+        "outputPath": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nguyennghia/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj": {
+                "projectPath": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
             "AspNetCore.HealthChecks.SqlServer": {
               "target": "Package",
               "version": "[6.0.2, )"
@@ -45,6 +111,14 @@
             "AspNetCore.HealthChecks.UI.Client": {
               "target": "Package",
               "version": "[6.0.5, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
             },
             "Duende.IdentityServer": {
               "target": "Package",

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Microservices.IDP.Migrations.IdentityServer.Identity
 {
     [DbContext(typeof(MSIdentityContext))]
-    [Migration("20221004155714_Init_Identity")]
+    [Migration("20221009070852_Init_Identity")]
     partial class Init_Identity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,36 @@ namespace Microservices.IDP.Migrations.IdentityServer.Identity
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("Microservices.IDP.Infrastructure.Entities.Permission", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("Command")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Function")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId", "Function", "Command")
+                        .IsUnique()
+                        .HasFilter("[Function] IS NOT NULL AND [Command] IS NOT NULL");
+
+                    b.ToTable("Permissions", "Identity");
+                });
 
             modelBuilder.Entity("Microservices.IDP.Infrastructure.Entities.User", b =>
                 {
@@ -123,15 +153,15 @@ namespace Microservices.IDP.Migrations.IdentityServer.Identity
                     b.HasData(
                         new
                         {
-                            Id = "65b7ffcb-3774-4a47-b62e-55311e5e06b6",
-                            ConcurrencyStamp = "b62283b4-e992-48c0-895f-f9af0c75fe39",
+                            Id = "c390ddc3-05df-41b9-9e96-0ab908fcf36c",
+                            ConcurrencyStamp = "1dd0cfab-a5ab-42b9-bbb3-b23b0b04705d",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "a3cac5f0-6254-45f1-9708-926bec5e5526",
-                            ConcurrencyStamp = "4c03493b-aac7-4d72-80b6-a56cfe72896f",
+                            Id = "e947c11e-3c48-4bda-b482-fb479d886f4f",
+                            ConcurrencyStamp = "94d02b39-577a-47b4-a295-98179016f84d",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -229,6 +259,17 @@ namespace Microservices.IDP.Migrations.IdentityServer.Identity
                     b.HasKey("UserId");
 
                     b.ToTable("UserTokens", "Identity");
+                });
+
+            modelBuilder.Entity("Microservices.IDP.Infrastructure.Entities.Permission", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

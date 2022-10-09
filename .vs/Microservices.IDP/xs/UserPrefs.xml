@@ -1,5 +1,31 @@
-﻿<Properties StartupConfiguration="{D028B85E-7EA6-4DB9-B2E1-7860AEBB56FE}|Default">
+﻿<Properties StartupConfiguration="{F0058392-2036-426F-9043-1F4AF955DC54}|SelfHost">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Microservices.IDP PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/Microservices.IDP/Program.cs">
+    <Files>
+      <File FileName="src/Microservices.IDP/Program.cs" Line="14" Column="1" />
+      <File FileName="src/Microservices.IDP/Extensions/HostingExtensions.cs" Line="69" Column="39" />
+      <File FileName="src/Microservices.IDP/Extensions/ServiceExtensions.cs" Line="52" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Microservices.IDP" expanded="True">
+            <Node name="Microservices.IDP" expanded="True" selected="True" />
+            <Node name="Microservices.IDP.Presentation" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Microservices.IDP.Presentation FirstBuild="True" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

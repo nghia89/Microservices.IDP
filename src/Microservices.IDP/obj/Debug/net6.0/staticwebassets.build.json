@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "l8Z57ZcI90Vmzg1HRpgTx0CDloVg4qMhxrM3Kzt6Jv4=",
+  "Hash": "FdYmrzGKyHMCI7U9mq0IsunoKQI+4st0AxmPm2iNJf4=",
   "Source": "Microservices.IDP",
   "BasePath": "_content/Microservices.IDP",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj",
+      "Version": 2,
+      "Source": "Microservice.IDP.Presentation",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "Microservices.IDP/wwwroot",
