@@ -119,7 +119,7 @@ namespace Microservices.IDP.Extensions
                     {
                         Implicit = new OpenApiOAuthFlow
                         {
-                            AuthorizationUrl = new Uri($"{identityServerBaseUrl}/connect/authorize"),
+                            AuthorizationUrl = new Uri($"http://localhost:5001/connect/authorize"),
                             Scopes = new Dictionary<string, string>
                         {
                            { "tedu_microservices_api.read", "Tedu Microservices API Read Scope" },

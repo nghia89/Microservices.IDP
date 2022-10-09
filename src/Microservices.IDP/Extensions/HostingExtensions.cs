@@ -81,6 +81,8 @@ internal static class HostingExtensions
             config.ReturnHttpNotAcceptable = true;
             config.Filters.Add(new ProducesAttribute("application/json", "text/plain", "text/json"));
         }).AddApplicationPart(typeof(AssemblyReference).Assembly);
+        builder.Services.ConfigureAuthentication();
+        builder.Services.ConfigureAuthorization();
         builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
         builder.Services.ConfigureSwagger(builder.Configuration);
         return builder.Build();
@@ -101,7 +103,7 @@ internal static class HostingExtensions
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
-            c.OAuthClientId("microservices_swagger");
+            c.OAuthClientId("tedu_microservices_swagger");
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "Identity API");
             c.DisplayRequestDuration();
         });

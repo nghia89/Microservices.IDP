@@ -9,7 +9,7 @@ namespace Microservices.IDP.Presentation.Controllers;
 
 [ApiController]
 [Route("api/[controller]/roles/{roleId}")]
-//[Authorize("Bearer")]
+[Authorize("Bearer")]
 public class PermissionsController : ControllerBase
 {
     private readonly IRepositoryManager _repository;
