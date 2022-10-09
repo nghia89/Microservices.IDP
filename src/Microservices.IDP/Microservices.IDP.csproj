@@ -8,36 +8,28 @@
 	<PropertyGroup Condition=" '$(RunConfiguration)' == 'SelfHost' " />
 	<ItemGroup>
 		<PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="6.0.2" />
-		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
-		<PackageReference Include="Duende.IdentityServer" Version="6.1.5" />
-		<PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.1.5" />
-		<PackageReference Include="Duende.IdentityServer.EntityFramework" Version="6.1.5" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
-		<PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
-		<PackageReference Include="Serilog.Sinks.Elasticsearch" Version="8.4.1" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
-		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		  <PrivateAssets>all</PrivateAssets>
-		</PackageReference>
-		 <PackageReference Include="Dapper" Version="2.0.123" />
-	 <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
+    <PackageReference Include="Duende.IdentityServer" Version="6.1.5" />
+    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.1.5" />
+    <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="6.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+    <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="8.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Extensions\" />
 	</ItemGroup>
-	<ItemGroup>
-	  <None Remove="Microsoft.EntityFrameworkCore.Tools" />
-	</ItemGroup>
+	 
 	<ItemGroup>
 	     <ProjectReference Include="..\Microservices.IDP.Presentation\Microservices.IDP.Presentation.csproj" />
-	</ItemGroup>
+	     <ProjectReference Include="..\Microservices.IDP.Infrastructure\Microservices.IDP.Infrastructure.csproj">
+	       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+	     </ProjectReference>
+ 	</ItemGroup>
 </Project>

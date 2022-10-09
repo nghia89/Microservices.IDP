@@ -2,6 +2,7 @@ using System.Security.Claims;
 using IdentityModel;
 using Microservices.IDP.Infrastructure.Common;
 using Microservices.IDP.Infrastructure.Entities;
+using Microservices.IDP.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,7 +33,7 @@ public class SeedUserData
             using (var scope = serviceProvider
                        .GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                CreateUser(scope, "admin", "Smith", "Alice Smith's Wollongong",
+                CreateUser(scope, "admin", "Smith", "admin Smith's Wollongong",
                     Guid.NewGuid().ToString(), "admin123",
                     "Administrator", "admin");
             }

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microservices.IDP.Infrastructure.Entities;
 
-namespace Microservices.IDP.Persistence;
+namespace Microservices.IDP.Infrastructure.Persistence;
 
 public class MSIdentityContext : IdentityDbContext<User>
 {

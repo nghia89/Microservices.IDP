@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microservices.IDP.Infrastructure.Domains;
 using Microservices.IDP.Infrastructure.Entities;
-using Microservices.IDP.Persistence;
+using Microservices.IDP.Infrastructure.Persistence;
 
 namespace Microservices.IDP.Infrastructure.Repositories;
 

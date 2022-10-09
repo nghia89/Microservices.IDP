@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microservices.IDP.Infrastructure.Domains;
 using Microservices.IDP.Infrastructure.Entities;
 using Microservices.IDP.Infrastructure.ViewModels;
-using Microservices.IDP.Persistence;
+using Microservices.IDP.Infrastructure.Persistence;
 
 namespace Microservices.IDP.Infrastructure.Repositories;
 

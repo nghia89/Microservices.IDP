@@ -109,3 +109,5 @@
 /Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservice.IDP.Presentation
 /Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservice.IDP.Presentation.dll
 /Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservice.IDP.Presentation.pdb
+/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservices.IDP.Infrastructure.dll
+/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservices.IDP.Infrastructure.pdb

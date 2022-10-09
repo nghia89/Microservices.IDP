@@ -1,4 +1,4 @@
-using Microservices.IDP.Persistence;
+using Microservices.IDP.Infrastructure.Persistence;
 
 namespace Microservices.IDP.Infrastructure.Domains;
 

@@ -2,7 +2,7 @@ using System.Data;
 using System.Linq.Expressions;
 using Dapper;
 using Microservices.IDP.Infrastructure.Exceptions;
-using Microservices.IDP.Persistence;
+using Microservices.IDP.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 

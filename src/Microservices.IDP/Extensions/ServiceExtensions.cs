@@ -2,6 +2,7 @@
 using Duende.IdentityServer.Test;
 using Microservices.IDP.Common;
 using Microservices.IDP.Infrastructure.Entities;
+using Microservices.IDP.Infrastructure.Persistence;
 using Microservices.IDP.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
