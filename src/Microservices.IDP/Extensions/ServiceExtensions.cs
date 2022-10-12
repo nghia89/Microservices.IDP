@@ -90,7 +90,7 @@ namespace Microservices.IDP.Extensions
                     opt.Lockout.MaxFailedAccessAttempts = 3;
                 })
                 .AddEntityFrameworkStores<MSIdentityContext>()
-                //.AddUserStore<TeduUserStore>()
+                .AddUserStore<UserStore>()
                 .AddDefaultTokenProviders();
         }
 
