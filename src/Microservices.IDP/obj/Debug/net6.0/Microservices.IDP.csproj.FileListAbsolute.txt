@@ -105,7 +105,6 @@
 /Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservice.IDP.Presentation.deps.json
 /Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservice.IDP.Presentation.runtimeconfig.json
-/Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/appsettings.Development.json
 /Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservice.IDP.Presentation
 /Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservice.IDP.Presentation.dll
 /Users/nguyennghia/Personal/Microservices.IDP/src/Microservices.IDP/bin/Debug/net6.0/Microservice.IDP.Presentation.pdb

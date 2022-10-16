@@ -13,7 +13,14 @@ services:
     ports:
       - "1436:1433"
     
+  microservices.idp:
+    image: ${DOCKER_REGISTRY-}microservices
+    build:
+      context: .
+      dockerfile: src/Microservices.IDP/Dockerfile
+
 volumes:
   identity_sqlserver_data:
     external: false
       
+

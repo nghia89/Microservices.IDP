@@ -6,10 +6,12 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["src/Microservices.IDP/Microservices.IDP.csproj", "src/Microservices.IDP/"]
-RUN dotnet restore "src/Microservices.IDP/Microservices.IDP.csproj"
+COPY ["Microservices.IDP/Microservices.IDP.csproj", "Microservices.IDP/"]
+COPY ["Microservices.IDP.Presentation/Microservices.IDP.Presentation.csproj", "Microservices.IDP.Presentation/"]
+COPY ["Microservices.IDP.Infrastructure/Microservices.IDP.Infrastructure.csproj", "Microservices.IDP.Infrastructure/"]
+RUN dotnet restore "Microservices.IDP/Microservices.IDP.csproj"
 COPY . .
-WORKDIR "/src/src/Microservices.IDP"
+WORKDIR "/src/Microservices.IDP"
 RUN dotnet build "Microservices.IDP.csproj" -c Release -o /app/build
 
 FROM build AS publish

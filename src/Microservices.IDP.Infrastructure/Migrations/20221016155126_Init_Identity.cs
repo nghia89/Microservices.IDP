@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Microservices.IDP.Migrations.IdentityServer.Identity
+namespace Microservices.IDP.Infrastructure.Migrations
 {
     public partial class Init_Identity : Migration
     {
@@ -94,7 +94,7 @@ namespace Microservices.IDP.Migrations.IdentityServer.Identity
                     Id = table.Column<string>(type: "varchar(50)", nullable: false),
                     FirstName = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "varchar(150)", maxLength: 150, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     NormalizedUserName = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
                     Email = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
@@ -157,13 +157,13 @@ namespace Microservices.IDP.Migrations.IdentityServer.Identity
                 schema: "Identity",
                 table: "Roles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "c390ddc3-05df-41b9-9e96-0ab908fcf36c", "1dd0cfab-a5ab-42b9-bbb3-b23b0b04705d", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "323dd4f3-d3ed-4d54-9fd2-ca5a0f686f8d", "97248739-c32e-42d1-b6fc-c5a3ccd19c0d", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 schema: "Identity",
                 table: "Roles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "e947c11e-3c48-4bda-b482-fb479d886f4f", "94d02b39-577a-47b4-a295-98179016f84d", "Customer", "CUSTOMER" });
+                values: new object[] { "7e856d60-07c6-4e93-bf23-40271af4aec8", "40ef668b-d559-438b-ab9b-d4a089e09fd7", "Customer", "CUSTOMER" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Permissions_RoleId_Function_Command",
