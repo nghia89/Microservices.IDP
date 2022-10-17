@@ -1,0 +1,42 @@
+version: '3.9'
+services:
+  # database section
+  identitydb:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: identitydb
+    environment:
+      SA_PASSWORD: "Passw0rd!"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - identity_sqlserver_data:/var/opt/mssql
+    restart: always
+    ports:
+      - "1436:1433"
+
+  # api section
+  ms.identity.api:
+    image: ${DOCKER_REGISTRY-}ms-identity-api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Microservices.IDP/Dockerfile
+    container_name: ms.identity.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - "ConnectionStrings:IdentitySqlConnection=Server=identitydb;Database=MsIdentity;User Id=sa;Password=Passw0rd!;Multipleactiveresultsets=true"
+      - "IdentityServer:BaseUrl=http://localhost:6009"
+      - "IdentityServer:IssuerUri=http://ms.identity.api"
+    depends_on:
+      - identitydb
+    ports:
+      - "6009:80"
+    restart: always
+
+networks:
+  default:
+    name: tedu_microservices
+    external: true
+
+volumes:
+  identity_sqlserver_data:
+    external: false

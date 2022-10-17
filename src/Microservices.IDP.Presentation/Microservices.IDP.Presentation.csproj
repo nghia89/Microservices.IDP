@@ -12,8 +12,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
   <ItemGroup>
-<ProjectReference Include="..\Microservices.IDP.Infrastructure\Microservices.IDP.Infrastructure.csproj">
-	       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-	     </ProjectReference>
+<ProjectReference Include="..\Microservices.IDP.Infrastructure\Microservices.IDP.Infrastructure.csproj"/>
        </ItemGroup>
 </Project>

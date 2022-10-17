@@ -1,4 +1,4 @@
-USE [TeduIdentity]
+USE [MsIdentity]
 GO
 SET ANSI_NULLS ON
 GO

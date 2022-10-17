@@ -28,8 +28,6 @@
 	 
 	<ItemGroup>
 	     <ProjectReference Include="..\Microservices.IDP.Presentation\Microservices.IDP.Presentation.csproj" />
-	     <ProjectReference Include="..\Microservices.IDP.Infrastructure\Microservices.IDP.Infrastructure.csproj">
-	       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-	     </ProjectReference>
- 	</ItemGroup>
+	     <ProjectReference Include="..\Microservices.IDP.Infrastructure\Microservices.IDP.Infrastructure.csproj"/>
+  	</ItemGroup>
 </Project>
