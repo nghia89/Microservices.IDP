@@ -2,6 +2,7 @@
 using Microservices.IDP.Infrastructure.Repositories;
 using Microservices.IDP.Presentation;
 using Microservices.IDP.Services.EmailService;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
@@ -99,28 +100,31 @@ internal static class HostingExtensions
 
         // uncomment if you want to add a UI
         app.UseStaticFiles();
+        app.UseForwardedHeaders(new ForwardedHeadersOptions
+        {
+            ForwardedHeaders = ForwardedHeaders.All
+        });
         app.UseCors("CorsPolicy");
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
             c.OAuthClientId("tedu_microservices_swagger");
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Identity API");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tedu Identity API");
             c.DisplayRequestDuration();
         });
         app.UseRouting();
-
+        app.UseMiddleware<ErrorWrappingMiddleware>();
         //set cookie policy before authentication/authorization setup
         app.UseCookiePolicy();
-
         app.UseIdentityServer();
 
         // uncomment if you want to add a UI
         app.UseAuthorization();
+
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapDefaultControllerRoute();
+            endpoints.MapDefaultControllerRoute().RequireAuthorization("Bearer");
             endpoints.MapRazorPages().RequireAuthorization();
-
         });
 
         return app;

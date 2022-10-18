@@ -54,7 +54,9 @@ public static class Config
                     "http://localhost:6009/swagger/oauth2-redirect.html",
                     "http://localhost:5000/swagger/oauth2-redirect.html",
                     "http://localhost:5001/swagger/oauth2-redirect.html",
-                    "http://localhost:5002/swagger/oauth2-redirect.html"
+                    "http://localhost:6001/swagger/oauth2-redirect.html",
+                    "http://localhost:5002/swagger/oauth2-redirect.html",
+                    "http://localhost:6002/swagger/oauth2-redirect.html"
 
                 },
                 PostLogoutRedirectUris = new List<string>()
@@ -62,7 +64,9 @@ public static class Config
                     "http://localhost:6009/swagger/oauth2-redirect.html",
                     "http://localhost:5000/swagger/oauth2-redirect.html",
                     "http://localhost:5001/swagger/oauth2-redirect.html",
-                    "http://localhost:5002/swagger/oauth2-redirect.html"
+                    "http://localhost:6001/swagger/oauth2-redirect.html",
+                    "http://localhost:5002/swagger/oauth2-redirect.html",
+                    "http://localhost:6002/swagger/oauth2-redirect.html"
                 },
                 AllowedCorsOrigins = new List<string>()
                 {
